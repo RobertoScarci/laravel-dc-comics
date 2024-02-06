@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\ComicController as GuestComicController;
 use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('/comics', [ComicController::class, 'index'])->name('pages.comics');
-Route::get('/comics/{id}', [ComicController::class, 'show'])->name('guest.comics.show');
+Route::post('/comics', [GuestComicController::class, 'store'])->name('pages.store');
+Route::get('/comics/create', [GuestComicController::class, 'create'])->name('pages.create');
+Route::get('/comics/{id}', [ComicController::class, 'show'])->name('pages.show');

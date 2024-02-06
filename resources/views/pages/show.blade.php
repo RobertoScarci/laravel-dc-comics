@@ -4,17 +4,16 @@
 
 @section('main-content')
 
-    <div class="container pt-5">
+    <div class="container pt-5 text-center">
         <div class="wrapper">
             <div class="img-box">
-                <img src="{{ $comic->thumb }}" alt="">
+                <img src="{{ $comic->thumb }}" alt="" width="400rem">
                 <div class="type">{{ $comic->type }}</div>
-                <div class="gallery">View Gallery</div>
             </div>
         </div>
     </div>
 
-    <div class="comic-info container">
+    <div class="container text-center">
         <div class="wrapper">
             <div class="left-column">
                 <h1>{{ $comic->title }}</h1>
@@ -30,17 +29,13 @@
                 </div>
                 <p>{{ $comic->description }}</p>
             </div>
-            <div class="right-column">
-                <p>Advertising</p>
-                <img src="{{ Vite::asset('resources/img/adv.jpg') }}" alt="">
-            </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container text-center">
         <div class="wrapper">
             <div class="specs">
-                <h2>Specs</h2>
+                <h2>Info</h2>
 
                 <div class="series">
                     <span>Series: </span>
