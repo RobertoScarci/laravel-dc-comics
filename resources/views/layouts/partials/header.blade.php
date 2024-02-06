@@ -13,6 +13,11 @@
                             Comics
                         </a>
                     </li>
+                    <li class="{{ ( Route::currentRouteName() == 'pages.create') ? 'active' : '' }}">
+                        <a href="{{ route('pages.create') }}" class="nav-item nav-link">
+                            Crea fumetto
+                        </a>
+                    </li>
                     <li class="nav-item nav-link">Movies</li>
                     <li class="nav-item nav-link">Tv</li>
                     <li class="nav-item nav-link">Games</li>
