@@ -3,11 +3,8 @@
 @section('title', 'DC - Comic')
 
 @section('main-content')
-    <section class="hero">
-        <img src="{{ Vite::asset('resources/img/jumbotron.jpg') }}" alt="jumbotron image">
-    </section>
 
-    <div class="separator">
+    <div class="container pt-5">
         <div class="wrapper">
             <div class="img-box">
                 <img src="{{ $comic->thumb }}" alt="">
@@ -17,7 +14,7 @@
         </div>
     </div>
 
-    <div class="comic-info">
+    <div class="comic-info container">
         <div class="wrapper">
             <div class="left-column">
                 <h1>{{ $comic->title }}</h1>
@@ -40,7 +37,7 @@
         </div>
     </div>
 
-    <div class="comic-description">
+    <div class="container">
         <div class="wrapper">
             <div class="specs">
                 <h2>Specs</h2>

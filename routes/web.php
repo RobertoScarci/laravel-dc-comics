@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/comics', [ComicController::class, 'index'])->name('pages.comics');
+Route::get('/comics/{id}', [ComicController::class, 'show'])->name('guest.comics.show');
