@@ -1,0 +1,9 @@
+.navbar li:hover{
+    color: rgb(18, 18, 184);
+    border-bottom: 1px solid blue;
+}
+
+.active{
+    border-bottom: 2px solid blue;
+    color: blue;
+}

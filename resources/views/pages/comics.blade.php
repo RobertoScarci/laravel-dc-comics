@@ -9,7 +9,7 @@
             <h2 class="title">Current Series</h2>
             <div class=" d-flex flex-wrap">
                 @foreach ($comics as $comic)
-                <div class="card col-4">
+                <div class="card col-4"">
                     <img src="{{ $comic['thumb'] }}" alt="" class="w-80">
                     <h3>{{ $comic['series'] }}</h3>
                 </div>
@@ -20,4 +20,5 @@
             </div>
         </div>
     </section>
+    
 @endsection

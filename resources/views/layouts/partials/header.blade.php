@@ -2,13 +2,17 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <div class="logo">
-                <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC main logo" width="60rem" class="h-30">
+                <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC main logo" width="60rem">
             </div>
             <div class="container-fluid">
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item nav-link">Characters</li>
-                    <li class="nav-item nav-link">Comics</li>
+                    <li class="{{ ( Route::currentRouteName() == 'pages.comics') ? 'active' : '' }}">
+                        <a href="{{ route('pages.comics') }}" class="nav-item nav-link">
+                            Comics
+                        </a>
+                    </li>
                     <li class="nav-item nav-link">Movies</li>
                     <li class="nav-item nav-link">Tv</li>
                     <li class="nav-item nav-link">Games</li>
