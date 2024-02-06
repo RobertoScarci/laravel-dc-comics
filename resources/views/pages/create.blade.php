@@ -48,7 +48,7 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary mb-4">Crea nuovo tipo di pasta</button>
+                    <button type="submit" class="btn btn-primary mb-4">Crea nuovo fumetto</button>
                     <button type="reset"  class="btn btn-warning mb-4">Pulisci il form</button>
                 </form>
             </div>
