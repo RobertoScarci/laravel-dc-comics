@@ -9,9 +9,11 @@
             <h2 class="title">Current Series</h2>
             <div class=" d-flex flex-wrap">
                 @foreach ($comics as $comic)
-                <div class="card col-4"">
-                    <img src="{{ $comic['thumb'] }}" alt="" class="w-80">
-                    <h3>{{ $comic['series'] }}</h3>
+                <div class="card col-3 me-3 mt-3 mb-4">
+                    <a href="{{ route('pages.show', $comic->id) }}">
+                    <img src="{{ $comic['thumb'] }}" alt="">
+                    <h4>{{ $comic['series'] }}</h4>
+                    </a>
                 </div>
                 @endforeach
             </div>

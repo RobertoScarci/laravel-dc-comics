@@ -50,6 +50,13 @@
                     <span>{{ $comic->sale_date }}</span>
                 </div>
             </div>
+            <div class="actions mb-3 pt-3">
+                <a href="{{ route('pages.edit', $comic->id) }}">
+                    <button class="btn btn-primary">
+                        Modifica questo fumetto
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 @endsection

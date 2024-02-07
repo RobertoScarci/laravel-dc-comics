@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -41,16 +42,28 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        $actualComic = new Comic();
-        $actualComic->title = $data['title'];
-        $actualComic->description = $data['description'];
-        $actualComic->thumb = $data['thumb'];
-        $actualComic->price = $data['price'];
-        $actualComic->series = $data['series'];
-        $actualComic->sale_date = $data['sale_date'];
-        $actualComic->type = $data['type'];
-        $actualComic->save();
-        // $actualComic = Comic::create($data);
+        $request->validate([
+            'title' => ['required', 'min:4', 'max:40'],
+            'description' => ['required', 'min:4', 'max:200'],
+            'thumb' => ['required'],
+            'price' => ['required'],
+            'series' => ['required', 'min:10', 'max:20'],
+            'sale_date' => ['required'],
+            'type' => ['required'],
+        ], [
+            'title.required' => 'Devi inserire un titolo per il fumetto!'
+        ]);
+
+        // $actualComic = new Comic();
+        // $actualComic->title = $data['title'];
+        // $actualComic->description = $data['description'];
+        // $actualComic->thumb = $data['thumb'];
+        // $actualComic->price = $data['price'];
+        // $actualComic->series = $data['series'];
+        // $actualComic->sale_date = $data['sale_date'];
+        // $actualComic->type = $data['type'];
+        // $actualComic->save();
+        $actualComic = Comic::create($data);
 
         return redirect()->route('pages.show', $actualComic->id);
     }
@@ -62,15 +75,30 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        return view('pages.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'min:4', 'max:80', Rule::unique('comics')->ignore($comic->id)],
+            'description' => ['required', 'min:4', 'max:2000'],
+            'thumb' => ['required'],
+            'price' => ['required'],
+            'series' => ['required', 'min:3', 'max:100'],
+            'sale_date' => ['required'],
+            'type' => ['required'],
+        ], [
+            'title.required' => 'Devi inserire un titolo per il fumetto!'
+        ]);
+        $data = $request->all();
+        $comic->update($data);
+
+        return redirect()->route('pages.show', $comic->id);
     }
 
     /**

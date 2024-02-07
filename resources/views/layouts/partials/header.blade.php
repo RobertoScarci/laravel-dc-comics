@@ -2,7 +2,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <div class="logo">
-                <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC main logo" width="60rem">
+                <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC main logo" class="jumbo">
             </div>
             <div class="container-fluid">
               <div class="collapse navbar-collapse" id="navbarNav">
